@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript" src="./index.js"></script>
+    <div>
+        <label for="input-number">Give a number for the computer to guess:</label>
+        <input id="input-number" type="number" min="0" max="100">
+        <button id="start">Start Guessing</button>
+    </div>
+    <br>
+    <!-- <p id="welcome-text">Waiting on you to start the game!</p> -->
+    <div id="guess-area">
+        <p id="guess-line">My <span id="guess-iteration">first</span> guess is <span id="guess-number">waiting on you to pick a number</span>. Is it higher, lower, or am I correct?</p>
+        <button id="higher-button">Higher</button>
+        <button id="lower-button">Lower</button>
+        <button id="correct-button">Correct!</button>
+    </div>
+    <div id="douche" class="hide">
+        <p>Please don't be that dipshit, answer correctly.</p>
+    </div>
+    <div id="win-text" class="hide">
+        <p>Hooray! I guessed it correctly in <span id="num-guesses-to-win"></span> guesses!</p>
+    </div>
+    <script>
+        const startButton = document.getElementById("start");
+        startButton.addEventListener("click", (event) => {
+            let inputNumber = Number(document.getElementById("input-number").value);
+            startGame(inputNumber);
+        });
+
+        const higherButton = document.getElementById("higher-button");
+        higherButton.addEventListener("click", (event) => {
+            higherClicked();
+        });
+
+        const lowerButton = document.getElementById("lower-button");
+        lowerButton.addEventListener("click", (event) => {
+            lowerClicked();
+        });
+
+        const correctButton = document.getElementById("correct-button");
+        correctButton.addEventListener("click", (event) => {
+            correctClicked();
+        });
+    </script>
+</body>
+<style>
+    /* #guess-area {
+        display: none;
+    } */
+
+    .hide {
+        display: none;
+    }
+</style>
+</html>
